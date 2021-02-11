@@ -46,6 +46,7 @@ td.units:first-child {
 @media screen and (max-width: 992px) {
   table {
     font-size: 1rem;
+    overflow: hidden;
   }
 
   th,
