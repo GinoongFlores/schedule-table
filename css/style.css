@@ -1,20 +1,28 @@
-* {
-  margin: 0;
+body {
   padding: 0;
-}
-
-table {
-  width: 100%;
-  text-align: center;
+  margin: 0;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-table,
-th,
-td {
-  border: 1px solid rgb(0, 0, 0);
+* {
+  box-sizing: border-box;
+}
+
+.raf {
+  width: 100%;
   border-collapse: collapse;
+}
+
+.raf td,
+.raf th {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.raf th {
+  background-color: rgb(190, 253, 232);
 }
 
 tr.nobold > th {
@@ -32,11 +40,11 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: aquamarine;
+  background-color: rgb(184, 238, 220);
 }
 
 tr:nth-child(odd) {
-  background-color: burlywood;
+  background-color: rgb(243, 216, 180);
 }
 
 td.units:first-child {
@@ -46,12 +54,6 @@ td.units:first-child {
 @media screen and (max-width: 992px) {
   table {
     font-size: 1rem;
-    overflow: hidden;
-  }
-
-  th,
-  td {
-    padding: 1rem;
   }
 }
 
@@ -62,13 +64,34 @@ td.units:first-child {
 }
 
 @media screen and (max-width: 576px) {
-  table {
-    font-size: 0.8rem;
+  table thead {
+    display: none;
   }
 
-  th,
-  td {
-    padding: 1.52rem;
+  .raf,
+  .raf tbody,
+  .raf tr,
+  .raf td {
+    display: block;
+    width: 100%;
+  }
+
+  .raf tr {
+    margin-bottom: 0.5rem;
+  }
+
+  .raf td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    font-size: 1rem;
   }
 }
 
